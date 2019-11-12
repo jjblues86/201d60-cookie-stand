@@ -14,11 +14,13 @@ var storeOne = {
   avgCookieSale : 6.3,
   hourlyCust : [],
   hourlyCookies : [],
+  // cookiesHourly : function (min, max){
+  //   return Math.floor(Math.random() * (max - min)) + min;
+  // }
 }
 
 function cookiesHourly(min, max){
   return Math.floor(Math.random() * (max - min)) + min;
-
 }
 
 var storeTwo = {
@@ -67,9 +69,7 @@ article.appendChild(h3);
 
 // Creating a ul element tag 
 var ul = document.createElement('ul');
-// var p = document.createElement('p');
 article.appendChild(ul);
-// article.appendChild(p);
 var totalSales = 0;
 for(var i = 0; i < openHours.length; i++){
   var total = Math.ceil(cookiesHourly(storeOne.maxCust, storeOne.minCust) * storeOne.avgCookieSale);
@@ -88,9 +88,7 @@ article.appendChild(secondH3);
 
 // Creating a ul element tag 
 var ul2 = document.createElement('ul');
-// var p = document.createElement('p');
 article.appendChild(ul2);
-// article.appendChild(p);
 var totalSold = 0;
 for(var j = 0; j < openHours.length; j++){
   var totals = Math.ceil(cookiesHourly(storeTwo.maxCust, storeTwo.minCust) * storeOne.avgCookieSale);
@@ -110,9 +108,7 @@ article.appendChild(thirdH3);
 
 // Creating a ul element tag 
 var ul3 = document.createElement('ul');
-// var p = document.createElement('p');
 article.appendChild(ul3);
-// article.appendChild(p);
 var totalSell = 0;
 for(var x = 0; x < openHours.length; x++){
   var result = Math.ceil(cookiesHourly(storeThree.maxCust, storeThree.minCust) * storeThree.avgCookieSale);
@@ -132,9 +128,7 @@ article.appendChild(fourthH3);
 
 // Creating a ul element tag 
 var ul4 = document.createElement('ul');
-// var p = document.createElement('p');
 article.appendChild(ul4);
-// article.appendChild(p);
 var totalSells = 0;
 for(var b = 0; b < openHours.length; b++){
   var results = Math.ceil(cookiesHourly(storeFour.maxCust, storeFour.minCust) * storeFour.avgCookieSale);
