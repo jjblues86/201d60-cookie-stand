@@ -1,0 +1,14 @@
+#stores,th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+  border-spacing: 5px;
+}
+
+th, td{
+  height: 10px;
+  padding: 15px;
+  border-bottom: 1px solid black;
+  background-color: rgb(225, 230, 231);
+
+}
