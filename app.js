@@ -3,9 +3,7 @@
 // Array of store hours
 var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-var hourlyCookies = [];
-
-var tableEl = document.getElementById('stores');
+// var hourlyCookies = [];
 
 var Stores = function(location, minCust, maxCust, avgCookies){
   this.location = location;
@@ -17,7 +15,7 @@ var Stores = function(location, minCust, maxCust, avgCookies){
   this.totalSales = 0;
   this.calculateCustPerHour();
   this.arrayObj();
-  hourlyCookies.push(this.hourlyCookies);
+  // hourlyCookies.push(this.hourlyCookies);
 }
 
 // Calculating the total cookies sold for open hours for each store
@@ -43,6 +41,12 @@ Stores.prototype.arrayObj = function(){
   }
 }
 
+// Main container
+var tableEl = document.getElementById('stores');
+
+var article = document.createElement('article');
+tableEl.appendChild(article);
+
 // Creating data for the store rows
 Stores.prototype.dataRow = function(){
   this.totalCookies();
@@ -57,14 +61,14 @@ Stores.prototype.dataRow = function(){
     tdEl = document.createElement('td');
     tdEl.textContent = this.hourlyCookies[i];
     trEl.appendChild(tdEl);
-    tableEl.appendChild(trEl);
+    article.appendChild(trEl);
   }
 
   // creating data for total cookies sold by each store
   tdEl = document.createElement('td');
   tdEl.textContent = this.totalSales;
   trEl.appendChild(tdEl);
-  tableEl.appendChild(trEl);
+  article.appendChild(trEl);
 }
 
 // creating new stores instances
@@ -75,7 +79,7 @@ store.push(new Stores('Dubai', 11, 38, 3.7));
 store.push(new Stores('Paris', 20, 38, 2.3));
 store.push(new Stores('Lima', 2, 16, 4.6));
 
-// table headeRow
+// table headerRow
 function headerRow(){
 
   var trEl = document.createElement('tr');
@@ -88,12 +92,12 @@ function headerRow(){
     thEl.textContent = openHours[i];
     trEl.appendChild(thEl);
   }
-  tableEl.appendChild(trEl);
+  article.appendChild(trEl);
 
   thEl = document.createElement('th');
-  thEl.textContent = 'Total';
+  thEl.textContent = 'Daily Location Total';
   trEl.appendChild(thEl);
-  tableEl.appendChild(trEl);
+  article.appendChild(trEl);
 }
 headerRow();
 
@@ -115,6 +119,7 @@ var hourlyTotals = function(){
   totalName.textContent = 'Hourly Totals';
   footerTr.appendChild(totalName);
 
+
   // totalHourlySales
   for(var i = 0; i < openHours.length; i++){
     var hourlyTotal = 0;
@@ -133,9 +138,9 @@ var hourlyTotals = function(){
   }
 
   var footerTotal = document.createElement('td');
-  footerTotal.textContent = grandTotal + ' Grand Total';
+  footerTotal.textContent = grandTotal;
   footerTr.appendChild(footerTotal);
-  tableEl.appendChild(footerTr);
+  article.appendChild(footerTr);
 }
 
 
