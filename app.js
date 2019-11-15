@@ -103,10 +103,11 @@ headerRow();
 // generates store table in correct order
 Stores.prototype.inputData = function(){
   this.totalSales = 0;
-  this.hourlyCookies = [];
+  // this.hourlyCookies = [];
   this.calculateCustPerHour();
   this.arrayObj();
   this.dataRow();
+  hourlyTotals();
 }
 
 // creating the footer
@@ -147,10 +148,12 @@ var renderTable = function(){
   for(var i = 0; i < store.length; i++){
     store[i].dataRow();
   }
-
   console.log(store);
 }
 renderTable();
+hourlyTotals();
+
+
 
 // Creating Store form
 var storeForm = document.getElementById('storeForm');
@@ -172,5 +175,5 @@ function addNewStore(event){
   event.target.reset();
   newCity.dataRow();
   store.push(newCity);
-  hourlyTotals();
+  // hourlyTotals();
 }
