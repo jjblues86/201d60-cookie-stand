@@ -1,3 +1,25 @@
+nav{
+  background-color: #1672ce;
+}
+
+nav li{
+  display: inline;
+  list-style-type: none;
+}
+
+li a{
+  text-decoration: none;
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 20px;
+}
+
+li a:hover{
+  background-color: rgb(74, 145, 226);
+  color: white;
+}
+
 #stores,th, td{
   border: 1px solid black;
   border-collapse: collapse;
@@ -17,5 +39,7 @@ td:hover {
 }
 
 h2{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
+  font-size: 2em;
 }
