@@ -3,7 +3,6 @@
 // Array of store hours
 var openHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// var hourlyCookies = [];
 
 var Stores = function(location, minCust, maxCust, avgCookies){
   this.location = location;
@@ -150,6 +149,28 @@ var renderTable = function(){
   }
 
   console.log(store);
-  hourlyTotals();
 }
 renderTable();
+
+// Creating Store form
+var storeForm = document.getElementById('storeForm');
+storeForm.addEventListener('submit', addNewStore);
+
+function addNewStore(event){
+
+  event.preventDefault(); //prevents page from reloading when someone clicks submit
+  console.log('button clicked');
+
+  //targeting the input names on the form
+  var storeName = event.target.newStore.value;
+  var minCust = parseInt(event.target.minCust.value); // parseInt parses a string value and returns an integer
+  var maxCust = parseInt(event.target.maxCust.value);
+  var avgCookies = parseFloat(event.target.avgCookies.value);//parseFloat parses its argument and returns a floating point number
+
+  // Constructor for adding new store
+  var newCity = new Stores(storeName, minCust, maxCust, avgCookies);
+  event.target.reset();
+  newCity.dataRow();
+  store.push(newCity);
+  hourlyTotals();
+}
